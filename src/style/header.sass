@@ -1,0 +1,16 @@
+@use 'base'
+
+.header
+    padding: 0 base.$unit-2x
+    border-bottom: 1px solid black
+
+    &__nav
+        @extend %fxrow
+        height: base.$unit-5x
+        gap: base.$unit-1x
+        align-items: center
+        justify-content: space-between
+
+        &__menu-button
+            @extend %standard-button
+            font-size: base.$unit-2x
