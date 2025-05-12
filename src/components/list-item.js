@@ -22,6 +22,7 @@ export function createListItem(data) {
     let id = data.id;
     let title = data.title
     let year = data.year
+    let link = `/detail?id=${data.id}`
     let imgSrc = data.thumbnail
         ? `/project-imgs/${id}/${data.thumbnail}`
         : `/project-imgs/${id}/${id}-1.jpg`
@@ -30,8 +31,6 @@ export function createListItem(data) {
     let thisElm = setElement("li", {
         class: cname
     })
-
-    let imgs = loadProjectImages(id)
 
     let img = setElement("img", {
         class: `${cname}__thumbnail`,
@@ -43,7 +42,7 @@ export function createListItem(data) {
     })
     let projectTitle = setElement("h2", {
         class: `${cname}__title`,
-    }).withHTML(title)
+    }).withHTML(`<a href="${link}">${title}</a>`)
     let projectYear = setElement("p", {
         class: `${cname}__year`,
     }).withHTML(year)

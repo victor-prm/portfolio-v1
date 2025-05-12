@@ -8,6 +8,7 @@ export default function Projects() {
     const thisElm = setElement("div", {
         class: cname
     })
+    let headerCon = document.querySelector(".header__context-info")
 
     let projects = projectList();
     let projectContainer = setElement("ul", {
@@ -18,7 +19,10 @@ export default function Projects() {
 
     thisElm.append(projectContainer)
 
-    document.querySelector(".header__context-info").append(headerContext())
+    if (headerCon.childElementCount === 0) {
+        headerCon.append(headerContext())
+    }
+
 
     return thisElm;
 }
