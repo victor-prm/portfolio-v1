@@ -1,5 +1,5 @@
-export function allProjects() {
-    return [
+export function projectList() {
+    let list = [
         {
             "title": "Pour Reception",
             "year": "2017",
@@ -30,7 +30,7 @@ export function allProjects() {
             "roles": "Frontend Developer",
             "tags": "HTML, Sass, Javascript, Vite, Web Components",
             "type": "School Work",
-            "num_images": "6"
+            "num_images": "1"
         },
         {
             "title": "Feedelitist",
@@ -81,4 +81,7 @@ export function allProjects() {
             "num_images": "6"
         }
     ]
+
+    let sortedList = list.sort((a,b) => b.year-a.year)
+    return sortedList
 }

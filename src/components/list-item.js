@@ -9,5 +9,8 @@ export function createListItem(data) {
         class: cname
     })
 
+    let projectTitle = setElement("h2").withHTML(title)
+    thisElm.append(projectTitle)
+
     return thisElm;
 }
