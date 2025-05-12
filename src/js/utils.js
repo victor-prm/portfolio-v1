@@ -8,7 +8,7 @@ export function setElement(tag, attributesObj) {
     if (attributesObj && typeof attributesObj === "object") setAttributes(newElm, attributesObj);
 
     // Attach a method to set content directly on the created element
-    newElm.inner = function (html) {
+    newElm.withHTML = function (html) {
         if (typeof html !== "undefined") {
             this.innerHTML = String(html); // Convert to string to avoid errors
         }

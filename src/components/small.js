@@ -13,11 +13,13 @@ export function imgWrapper(parentClass) {
 export function arrowLink(data) {
     const cname = "arrow-link"
     let text = data.text || "";
+    let ref = data.link || "#"
     let direction = data.direction || "left";
 
     let link = setElement("a", {
-        class: cname
-    }).inner(text)
+        class: cname,
+        href: ref
+    }).withHTML(text)
 
     let icon = setElement("i",{
         class: `${cname}__icon`

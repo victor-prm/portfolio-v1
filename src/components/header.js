@@ -13,7 +13,7 @@ export function createHeader(data) {
         class: `${cname}__nav`
     })
 
-    let link = arrowLink({ text: "Index" })
+    let link = arrowLink({ text: "Index" , link: "/"})
     let menuButton = setElement("button",{
          class: `${cname}__nav__menu-button`
     })
@@ -25,10 +25,6 @@ export function createHeader(data) {
     nav.append(link,menuButton)
 
     thisElm.append(nav)
-
-
-
-
 
     return thisElm;
 }
