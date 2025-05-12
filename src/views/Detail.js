@@ -1,7 +1,7 @@
 import '../style/detail.sass'
 import { projectList } from "../js/project-list";
 import { setElement } from "../js/utils";
-import projectImage from '../components/project-image';
+import imageGrid from '../components/image-grid';
 
 let data = getContent().current;
 
@@ -12,12 +12,8 @@ export default function Projects() {
   })
 
   let projectImages = loadProjectImages(data.id);
-  let imageContainer = setElement("section", {
-    class: `${cname}__image-container`
-  })
-
-  projectImages.map(image => imageContainer.append(projectImage(image)))
-
+  let imageContainer = imageGrid(projectImages)
+  
   thisElm.append(imageContainer)
 
   headerContext();
@@ -87,3 +83,5 @@ function loadProjectImages(projectId) {
 
   return images
 }
+
+
