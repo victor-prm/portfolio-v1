@@ -1,5 +1,6 @@
+import './small.sass'
 import { setElement } from "../js/utils";
-import '../style/small.sass'
+
 
 export function imgWrapper(parentClass) {
     let imgWrap = setElement("figure", {
@@ -9,10 +10,10 @@ export function imgWrapper(parentClass) {
     return imgWrap;
 }
 
-export function arrowLink(props) {
+export function arrowLink(data) {
     const cname = "arrow-link"
-    let text = props.text || "";
-    let direction = props.direction || "left";
+    let text = data.text || "";
+    let direction = data.direction || "left";
 
     let link = setElement("a", {
         class: cname

@@ -1,8 +1,8 @@
-import '../style/header.sass'
+import './header.sass'
 import { setElement } from "../js/utils";
 import { arrowLink } from "./small";
 
-export function createHeader(props) {
+export function createHeader(data) {
     const cname = "header"
 
     let thisElm = setElement("header", {
