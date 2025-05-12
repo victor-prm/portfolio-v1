@@ -8,21 +8,15 @@ export default function Projects() {
     const thisElm = setElement("div", {
         class: cname
     })
-    let headerCon = document.querySelector(".header__context-info")
-
     let projects = projectList();
     let projectContainer = setElement("ul", {
         class: `${cname}__project-list`
     })
-
     projects.map(item => projectContainer.append(createListItem(item)))
 
     thisElm.append(projectContainer)
 
-    if (headerCon.childElementCount === 0) {
-        headerCon.append(headerContext())
-    }
-
+    headerContext();
 
     return thisElm;
 }
@@ -36,6 +30,13 @@ function headerContext() {
         class: `${cname}__title`
     }).withHTML("Projects")
     thisElm.append(title)
-    return thisElm;
+
+
+    //APPEND
+    let headerCon = document.querySelector(".header__context-info")
+    if (headerCon.childElementCount === 0) {
+        headerCon.append(thisElm)
+    }
+
 }
 

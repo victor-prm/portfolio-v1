@@ -44,9 +44,14 @@ function router() {
   void view.offsetWidth;
 
   app.appendChild(view);
-  
+
   let header = document.querySelector(".header")
-  app.style.paddingTop = header.offsetHeight+8+"px"
+  app.style.paddingTop = header.offsetHeight + 24 + "px"
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
 }
 
 // Back/forward buttons
