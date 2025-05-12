@@ -6,7 +6,8 @@ export function projectList() {
             "roles": "Interaction Designer",
             "tags": "Arduino, Sound Design, Capacitance, AI",
             "type": "School Work, Exhibition",
-            "num_images": "7"
+            "num_images": "7",
+            "id": "pour-reception"
         },
         {
             "title": "HAVE",
@@ -14,7 +15,8 @@ export function projectList() {
             "roles": "Interaction Designer",
             "tags": "Arduino, Light Design, Plants",
             "type": "School Work",
-            "num_images": "9"
+            "num_images": "9",
+            "id": "have"
         },
         {
             "title": "Elmer",
@@ -22,7 +24,8 @@ export function projectList() {
             "roles": "Interaction Designer",
             "tags": "Arduino, Raspberry Pi, Slow Technology, NFC/RFID",
             "type": "School Work",
-            "num_images": "3"
+            "num_images": "3",
+            "id": "elmer"
         },
         {
             "title": "Newsify",
@@ -30,7 +33,8 @@ export function projectList() {
             "roles": "Frontend Developer",
             "tags": "HTML, Sass, Javascript, Vite, Web Components",
             "type": "School Work",
-            "num_images": "1"
+            "num_images": "6",
+            "id": "newsify"
         },
         {
             "title": "Feedelitist",
@@ -38,7 +42,8 @@ export function projectList() {
             "roles": "Frontend Developer",
             "tags": "React, Noodl, AI, MongoDB, HTML, Javascript, CSS, Figma",
             "type": "Client Work",
-            "num_images": "9"
+            "num_images": "9",
+            "id": "feedelitist"
         },
         {
             "title": "Noodl",
@@ -46,7 +51,8 @@ export function projectList() {
             "roles": "Design Technologist, Frontend Developer",
             "tags": "React, Noodl, AI, MongoDB, HTML, Javascript, CSS, Figma",
             "type": "Client Work",
-            "num_images": "12"
+            "num_images": "12",
+            "id": "noodl"
         },
         {
             "title": "Prodikt",
@@ -54,7 +60,8 @@ export function projectList() {
             "roles": "Design Technologist, Frontend Developer",
             "tags": "React, Noodl, Puppeteer",
             "type": "Client Work",
-            "num_images": "4"
+            "num_images": "4",
+            "id": "prodikt"
         },
         {
             "title": "Shine",
@@ -62,7 +69,8 @@ export function projectList() {
             "roles": "Frontend Developer",
             "tags": "React, Noodl, AI, MongoDB, HTML, Javascript, CSS, Figma",
             "type": "Client Work",
-            "num_images": "5"
+            "num_images": "5",
+            "id": "shine"
         },
         {
             "title": "Third Nature",
@@ -70,7 +78,8 @@ export function projectList() {
             "roles": "Interaction Designer, Frontend Developer",
             "tags": "React, Noodl, AI, MongoDB, HTML, Javascript, CSS, Figma",
             "type": "Client Work",
-            "num_images": "5"
+            "num_images": "5",
+            "id": "third-nature"
         },
         {
             "title": "Bernhard",
@@ -78,10 +87,11 @@ export function projectList() {
             "roles": "Interaction Designer, Design Technologist",
             "tags": "Arduino, Bluetooth, HTML, CSS, Javascript",
             "type": "School Work",
-            "num_images": "6"
+            "num_images": "6",
+            "id": "bernhard"
         }
     ]
 
-    let sortedList = list.sort((a,b) => b.year-a.year)
+    let sortedList = list.sort((a, b) => b.year - a.year)
     return sortedList
 }

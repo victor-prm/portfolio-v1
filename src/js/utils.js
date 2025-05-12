@@ -38,3 +38,7 @@ export function getLS(key) {
 export function setLS(key, value) {
     localStorage.setItem(key, JSON.stringify(value))
 }
+
+export function getCurrentRoute() {
+  return location.pathname;
+}

@@ -1,5 +1,5 @@
 import './header.sass'
-import { setElement } from "../js/utils";
+import { getCurrentRoute, setElement } from "../js/utils";
 import { arrowLink } from "./small";
 
 export function createHeader(data) {
@@ -13,18 +13,27 @@ export function createHeader(data) {
         class: `${cname}__nav`
     })
 
-    let link = arrowLink({ text: "Index" , link: "/"})
-    let menuButton = setElement("button",{
-         class: `${cname}__nav__menu-button`
+    if (getCurrentRoute() === '/detail') {
+        let link = arrowLink({ text: "Index", link: "/projects" })
+        nav.append(link)
+    }
+
+
+    let menuButton = setElement("button", {
+        class: `${cname}__nav__menu-button`
     })
-    let menuIcon = setElement("i",{
+    let menuIcon = setElement("i", {
         class: "fas fa-bars"
     })
     menuButton.append(menuIcon)
 
-    nav.append(link,menuButton)
+    nav.append(menuButton)
 
-    thisElm.append(nav)
+    let contextInfo = setElement("div", {
+        class: `${cname}__context-info`
+    })
+
+    thisElm.append(nav, contextInfo)
 
     return thisElm;
 }

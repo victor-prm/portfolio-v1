@@ -44,6 +44,9 @@ function router() {
   void view.offsetWidth;
 
   app.appendChild(view);
+  
+  let header = document.querySelector(".header")
+  app.style.paddingTop = header.offsetHeight+8+"px"
 }
 
 // Back/forward buttons
