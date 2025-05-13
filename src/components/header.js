@@ -21,11 +21,8 @@ export function createHeader(data) {
 
     let menuButton = setElement("button", {
         class: `${cname}__nav__menu-button`
-    })
-    let menuIcon = setElement("i", {
-        class: "fas fa-bars"
-    })
-    menuButton.append(menuIcon)
+    }).withHTML("Menu ⚌")
+    //☰ ⁝⁝⁝ 𑁔 𓃑 ⵗ ∷ ⁝ 𓏬
 
     nav.append(menuButton)
 

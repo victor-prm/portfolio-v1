@@ -3,11 +3,10 @@
 
 .header
     @extend %fixed-banner
-    background: base.$gray-050
+    background: rgba(base.$gray-050,0.5) 
+    backdrop-filter: blur(16px) grayscale(50%)
     padding: base.$unit-1x base.$unit-2x
-    border-bottom: 2px base.$gray-900 solid
-
-
+    border-bottom: 1px base.$gray-900 solid
 
     &__nav
         @extend %fxrow
@@ -21,3 +20,6 @@
             font-size: base.$unit-2x
             color: base.$gray-900
             margin-left: auto
+
+            font: fonts.$text-body-3
+            font-family: fonts.$serif-family
