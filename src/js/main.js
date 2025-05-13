@@ -47,6 +47,7 @@ function router() {
 
   let header = document.querySelector(".header")
   app.style.paddingTop = header.offsetHeight + 24 + "px"
+  console.log(header.offsetHeight)
   window.scrollTo({
     top: 0,
     left: 0,
