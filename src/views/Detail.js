@@ -2,6 +2,7 @@ import '../style/detail.sass'
 import { projectList } from "../js/project-list";
 import { setElement } from "../js/utils";
 import imageGrid from '../components/image-grid';
+import { tagList } from '../components/tag-list';
 
 let data = getContent().current;
 
@@ -34,7 +35,21 @@ function headerContext() {
   }).withHTML(data.title)
   thisElm.append(title)
 
-  getContent()
+  //let typeList = tagList(data.type)
+  let type = tagList({
+    title: "Type",
+    tags: data.type
+  })
+  let role = tagList({
+    title: "Role",
+    tags: data.roles
+  })
+  let tags = tagList({
+    title: "Tags",
+    tags: data.tags
+  })
+
+  thisElm.append(type,role,tags)
 
 
   //APPEND

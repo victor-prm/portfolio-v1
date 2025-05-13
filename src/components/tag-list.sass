@@ -1,0 +1,29 @@
+@use '../style/base'
+@use '../style/fonts'
+
+.tags
+    @extend %fxrow
+    gap: base.$unit-1x
+    align-items: center
+    height: base.$unit-3x
+
+    font: fonts.$text-body-4
+    font-family: fonts.$serif-family
+
+    color: base.$gray-900
+
+    &__title
+        display: inline-flex
+        width: fit-content
+        font-size: 14px
+    
+    &__list
+        @extend %fxrow
+        gap: base.$unit-2x
+    
+    &__list
+        @extend %fxrow
+        gap: base.$unit-2x
+
+    &-item
+        color: RoyalBlue

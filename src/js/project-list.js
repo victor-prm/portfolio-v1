@@ -93,5 +93,23 @@ export function projectList() {
     ]
 
     let sortedList = list.sort((a, b) => b.year - a.year)
+    sortedList = splitTags(sortedList)
+    //console.log(sortedList)
     return sortedList
+}
+
+
+function splitTags(items) {
+    items.map(item => {
+        item.tags = splitAndTrim(item.tags);
+        item.roles = splitAndTrim(item.roles);
+        item.type = splitAndTrim(item.type);
+        //items.tags.map(tag => tag.trim())
+
+    })
+    return items
+}
+
+function splitAndTrim(key){
+    return String(key).split(",").map(item => item.trim());
 }
