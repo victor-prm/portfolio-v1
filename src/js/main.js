@@ -1,12 +1,12 @@
-import Home from '../views/home';
-import Projects from '../views/projects';
-import Detail from '../views/detail';
+import Home from '../views/home.js';
+import Projects from '../views/projects.js';
+import Detail from '../views/detail.js';
 
-import { createHeader } from '../components/header';
+import { contextHeader } from '../components/header';
 import '../style/index.sass'
 
 //SETUP
-document.body.prepend(createHeader())
+document.body.prepend(contextHeader())
 
 // Client-side navigation
 function navigateTo(url) {

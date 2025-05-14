@@ -2,7 +2,7 @@ import './header.sass'
 import { getCurrentRoute, setElement } from "../js/utils";
 import { arrowLink } from "./small";
 
-export function createHeader(data) {
+export function contextHeader(data) {
     const cname = "header"
 
     let thisElm = setElement("header", {

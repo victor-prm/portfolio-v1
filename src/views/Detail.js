@@ -2,18 +2,22 @@ import '../style/detail.sass'
 import { projectList } from "../js/project-list";
 import { setElement } from "../js/utils";
 import imageGrid from '../components/image-grid';
-import { tagList } from '../components/tag-list';
+import { metaCard } from '../components/meta-card';
 
 let data = getContent().current;
 
-export default function Projects() {
+export default function projects() {
   const cname = 'project'
   const thisElm = setElement("article", {
     class: cname
   })
 
   let projectImages = loadProjectImages(data.id);
-  let imageContainer = imageGrid(projectImages)
+  let imageContainer = imageGrid(projectImages);
+  
+  //Add meta card to beginning of grid
+  const allTags = {type: data.type,roles: data.roles,tags: data.tags}
+  imageContainer.prepend(metaCard(allTags));
   
   thisElm.append(imageContainer)
 
@@ -35,40 +39,10 @@ function headerContext() {
   }).withHTML(data.title)
   thisElm.append(title)
 
-  let tagsContainer = setElement("div",{
-     class: `${cname}__tags-container`
-  })
-
-  //let typeList = tagList(data.type)
-  let type = tagList({
-    title: "Type",
-    tags: data.type
-  })
-  let role = tagList({
-    title: "Role",
-    tags: data.roles
-  })
-  let tags = tagList({
-    title: "Tags",
-    tags: data.tags
-  })
-
-  tagsContainer.append(type,role,tags)
-  thisElm.append(tagsContainer)
-
 
   //APPEND
   let headerCon = document.querySelector(".header__context-info")
-  document.onscroll = (event) => { 
-    console.log(document.documentElement.scrollTop)
-    if(document.documentElement.scrollTop > headerCon.offsetHeight/3){
-      tagsContainer.classList.add(`${cname}__tags-container--hidden`)
-    }else{
-      tagsContainer.classList.remove(`${cname}__tags-container--hidden`)
-      console.log(headerCon.scrollHeight)
-    }
-  }
-
+  
   if (headerCon.childElementCount === 0) {
     headerCon.append(thisElm)
   }

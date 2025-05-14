@@ -1,7 +1,7 @@
 import './image-grid.sass'
 import { setElement } from "../js/utils";
 import projectImage from './project-image';
-import MiniMasonry from 'minimasonry';
+import MiniMasonry from '../libs/masonry.min.js';
 
 let masonry;
 let resizeTimeout;
@@ -29,36 +29,18 @@ function initMasonry() {
   const containerEl = document.querySelector(targetContainer);
   if (!containerEl) return;
 
-  const images = containerEl.querySelectorAll(".project-image__wrapper");
-  const totalImages = images.length;
-
-  const minWidth = 320; // base width for images
-  const gutterY = 16;
-  const gutterX = 16;
-
-  const containerWidth = containerEl.offsetWidth;
-
-  // Calculate maximum possible columns
-  const maxColumns = Math.floor(containerWidth / (minWidth + gutterX));
-
-  // Determine number of columns (no more than total images)
-  let columns = Math.min(maxColumns, totalImages);
-
-  if (columns < 1) columns = 1;
-
-  // Add/remove the class based on number of columns
-  if (columns === 1) {
-    images.forEach(item => item.classList.add('one-column'));
-  } else {
-    images.forEach(item => item.classList.remove('one-column'));
+  // Destroy existing masonry instance if it exists
+  if (masonry) {
+    masonry.destroy();
   }
 
-  // Initialize masonry
+  // Initialize MiniMasonry
   masonry = new MiniMasonry({
     container: targetContainer,
-    baseWidth: minWidth,
-    gutterY: gutterY,
-    gutterX: gutterX,
+    baseWidth: 320,     // your min desired item width
+    gutterX: 16,
+    gutterY: 16,
+    ultimateGutter: 16, // ensures one-column mode uses same vertical spacing
     surroundingGutter: false,
     minify: true
   });

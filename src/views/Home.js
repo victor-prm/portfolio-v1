@@ -1,4 +1,4 @@
-export default function Home() {
+export default function home() {
   const container = document.createElement('div');
   container.classList.add('home');
   container.innerHTML = `

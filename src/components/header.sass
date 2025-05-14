@@ -5,7 +5,7 @@
     @extend %fixed-banner
     background: rgba(base.$gray-050,0.5)
     backdrop-filter: blur(base.$unit-4x) grayscale(50%)
-    padding: base.$unit-1x base.$unit-2x
+    padding: base.$unit-1x base.$unit-3x
     border-bottom: 1px base.$gray-900 solid
 
     &__nav
@@ -28,9 +28,9 @@
         margin-bottom: base.$unit-1x
         &__title
             font-family: fonts.$sans-serif-family
-            font-size: base.$unit-3x
             font-weight: 600
-            margin-bottom: base.$unit-1x
+            line-height: 100%
+
         &__tags-container
             @extend %fxcol
             gap: base.$unit-05x

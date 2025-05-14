@@ -30,7 +30,13 @@ function tagItem(name) {
     const cname = "tags-item"
     let item = setElement("li", {
         class: cname
+    })
+    let link = setElement("a", {
+        class: `${cname}__link`,
+        href: "#"
     }).withHTML(name)
+
+    item.append(link)
 
     return item
 }

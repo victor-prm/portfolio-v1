@@ -3,7 +3,7 @@ import { createListItem } from "../components/list-item";
 import { projectList } from "../js/project-list";
 import { setElement } from "../js/utils";
 
-export default function Projects() {
+export default function projects() {
     const cname = 'projects'
     const thisElm = setElement("div", {
         class: cname
