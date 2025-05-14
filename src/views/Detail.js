@@ -6,7 +6,7 @@ import { metaCard } from '../components/meta-card';
 
 let data = getContent().current;
 
-export default function projects() {
+export default function detail() {
   const cname = 'project'
   const thisElm = setElement("article", {
     class: cname

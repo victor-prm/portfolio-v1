@@ -16,12 +16,13 @@ export function arrowLink(data) {
     let ref = data.link || "#"
     let direction = data.direction || "left";
 
-    let icon = direction === "right"? " ▻" : "◅ "
+    let content = direction === "right"? `${text} ▻` : `◅ ${text}`
+
 
     let link = setElement("a", {
         class: cname,
         href: ref
-    }).withHTML(icon+text)
+    }).withHTML(content)
     //⫷⪕⪪⪡⚌
     return link;
 }

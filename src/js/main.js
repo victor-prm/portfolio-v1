@@ -4,9 +4,12 @@ import Detail from '../views/detail.js';
 
 import { contextHeader } from '../components/header';
 import '../style/index.sass'
+import { navFooter } from '../components/footer.js';
+import { getCurrentRoute } from './utils.js';
 
 //SETUP
 document.body.prepend(contextHeader())
+
 
 // Client-side navigation
 function navigateTo(url) {
@@ -53,6 +56,9 @@ function router() {
     left: 0,
     behavior: "smooth",
   });
+
+
+  document.body.append(navFooter())
 }
 
 // Back/forward buttons
