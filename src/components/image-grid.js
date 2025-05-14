@@ -1,6 +1,6 @@
 import './image-grid.sass'
 import { setElement } from "../js/utils";
-import projectImage from './project-image';
+import imageItem from './image-item.js';
 import MiniMasonry from '../libs/masonry.min.js';
 
 let masonry;
@@ -13,7 +13,7 @@ export default function imageGrid(imageArray) {
   });
 
   // Append all images to the container
-  imageArray.map(image => imageContainer.append(projectImage(image)));
+  imageArray.map(image => imageContainer.append(imageItem(image)));
 
   // Wait for container to render, then initialize masonry
   setTimeout(() => {

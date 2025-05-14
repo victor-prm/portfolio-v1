@@ -88,4 +88,3 @@ function loadProjectImages(projectId) {
   return images
 }
 
-

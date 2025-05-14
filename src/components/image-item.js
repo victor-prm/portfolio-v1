@@ -1,4 +1,4 @@
-import './project-image.sass'
+import './image-item.sass'
 import { setElement } from "../js/utils";
 import { imgWrapper } from './small';
 
