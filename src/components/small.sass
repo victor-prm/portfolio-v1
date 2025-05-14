@@ -1,5 +1,5 @@
-@use 'base'
-@use 'fonts'
+@use '../style/base'
+@use '../style/fonts'
 
 .arrow-link
     @extend %fxrow
@@ -7,10 +7,11 @@
     align-items: center
     height: base.$unit-3x
 
-    font: fonts.$text-body-4
+    font: fonts.$text-body-3
     font-family: fonts.$serif-family
+
+    color: base.$gray-900
+    text-decoration: none
 
     &__icon
         font-size: base.$unit-2x
-
-

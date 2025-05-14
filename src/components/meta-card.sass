@@ -1,0 +1,21 @@
+@use '../style/base'
+@use '../style/fonts'
+
+.meta-card
+    position: absolute
+    width: 100%
+    box-sizing: border-box
+
+    @extend %fxcol
+    gap: base.$unit-1x
+
+    background: white
+    padding: base.$unit-2x base.$unit-1x
+    border: 1px solid base.$gray-900
+
+    &__tags-container
+        @extend %fxcol
+        gap: base.$unit-05x
+
+    &__description
+        font: fonts.$text-body-3

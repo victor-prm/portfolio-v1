@@ -1,27 +1,16 @@
-import { defineConfig } from 'vite';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/', // or './' if deploying to subfolder like GitHub Pages
+  base: '/',
   server: {
-    historyApiFallback: true, // enable SPA routing with History API fallback
+    historyApiFallback: true,
   },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
     rollupOptions: {
-      input: 'index.html', // single page app: single entry point
+      input: 'index.html',
     },
   },
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'pages', // folder to copy
-          dest: ''      // copy into root of dist/
-        }
-      ]
-    })
-  ]
-});
+})

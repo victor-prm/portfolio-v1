@@ -1,5 +1,6 @@
+import './small.sass'
 import { setElement } from "../js/utils";
-import '../style/small.sass'
+
 
 export function imgWrapper(parentClass) {
     let imgWrap = setElement("figure", {
@@ -9,25 +10,19 @@ export function imgWrapper(parentClass) {
     return imgWrap;
 }
 
-export function arrowLink(props) {
+export function arrowLink(data) {
     const cname = "arrow-link"
-    let text = props.text || "";
-    let direction = props.direction || "left";
+    let text = data.text || "";
+    let ref = data.link || "#"
+    let direction = data.direction || "left";
+
+    let content = direction === "right"? `${text} ▻` : `◅ ${text}`
+
 
     let link = setElement("a", {
-        class: cname
-    }).inner(text)
-
-    let icon = setElement("i",{
-        class: `${cname}__icon`
-    })
-    if(direction === "right"){
-        icon.classList.add("fas", "fa-long-arrow-right")
-        link.append(icon)
-    }else{
-        icon.classList.add("fas", "fa-long-arrow-left")
-        link.prepend(icon)
-    }
-
+        class: cname,
+        href: ref
+    }).withHTML(content)
+    //⫷⪕⪪⪡⚌
     return link;
 }

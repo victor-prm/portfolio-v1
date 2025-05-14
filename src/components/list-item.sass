@@ -1,0 +1,18 @@
+@use '../style/base'
+@use '../style/fonts'
+
+.list-item
+    @extend %fxrow
+    gap: base.$unit-1x
+    &__thumbnail
+        height: base.$unit-8x
+        width: base.$unit-8x
+        border: 1px solid base.$gray-900
+        object-fit: cover
+    &__title
+        font-family: fonts.$serif-family
+        font-size: base.$unit-2x
+        font-weight: 500
+    &__year
+        font-family: fonts.$sans-serif-family
+        font-size: base.$unit-2x

@@ -8,7 +8,7 @@ export function setElement(tag, attributesObj) {
     if (attributesObj && typeof attributesObj === "object") setAttributes(newElm, attributesObj);
 
     // Attach a method to set content directly on the created element
-    newElm.inner = function (html) {
+    newElm.withHTML = function (html) {
         if (typeof html !== "undefined") {
             this.innerHTML = String(html); // Convert to string to avoid errors
         }
@@ -21,7 +21,7 @@ export function setElement(tag, attributesObj) {
 
 export function debounce(func, delay) {
     let timeout;
-    return function(...args) {
+    return function (...args) {
         clearTimeout(timeout);
         timeout = setTimeout(() => func.apply(this, args), delay);
     };
@@ -37,4 +37,8 @@ export function getLS(key) {
 
 export function setLS(key, value) {
     localStorage.setItem(key, JSON.stringify(value))
+}
+
+export function getCurrentRoute() {
+    return location.pathname;
 }

@@ -1,0 +1,27 @@
+@use '../style/base'
+@use '../style/fonts'
+
+.tags
+    @extend %fxrow
+    gap: base.$unit-1x
+
+    font: fonts.$text-body-4
+    font-family: fonts.$serif-family
+
+    color: base.$gray-900
+
+    &__title
+        display: inline-flex
+        min-width: base.$unit-4x
+        font: fonts.$text-body-4
+        font-weight: 700
+        line-height: base.$unit-2x
+
+    &__list
+        @extend %fxrow
+        gap: base.$unit-05x base.$unit-1x
+        flex-wrap: wrap
+
+    &-item
+        color: RoyalBlue
+        line-height: base.$unit-2x
