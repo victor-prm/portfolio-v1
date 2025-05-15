@@ -3,17 +3,20 @@ import Projects from '../views/projects.js';
 import Detail from '../views/detail.js';
 
 import { contextHeader } from '../components/header';
-import '../style/index.sass'
+import '../style/index.sass';
 import { navFooter } from '../components/footer.js';
 import { getCurrentRoute } from './utils.js';
 
-//SETUP
-document.body.prepend(contextHeader())
+// Detect basePath depending on hosting environment
+const basePath = location.hostname === "victor-prm.github.io" ? "/portfolio-v1" : "";
+console.log(basePath, typeof basePath)
 
+// SETUP
+document.body.prepend(contextHeader());
 
 // Client-side navigation
 function navigateTo(url) {
-  history.pushState(null, null, url);
+  history.pushState(null, null, basePath + url);
   router();
 }
 
@@ -21,7 +24,7 @@ function navigateTo(url) {
 document.addEventListener('click', e => {
   if (e.target.matches('[data-link]')) {
     e.preventDefault();
-    navigateTo(e.target.href);
+    navigateTo(e.target.getAttribute('href'));
   }
 });
 
@@ -32,7 +35,9 @@ function router() {
     { path: "/detail", view: Detail }
   ];
 
-  const match = routes.find(r => r.path === location.pathname);
+  const currentPath = location.pathname.replace(basePath, '') || "/";
+
+  const match = routes.find(r => r.path === currentPath);
 
   const app = document.getElementById("app");
   app.innerHTML = ''; // Clear old content
@@ -48,18 +53,16 @@ function router() {
 
   app.appendChild(view);
 
-  let header = document.querySelector(".header")
-  app.style.paddingTop = header.offsetHeight + 16 + "px"
-  //console.log(header.offsetHeight)
-  
+  let header = document.querySelector(".header");
+  app.style.paddingTop = header.offsetHeight + 16 + "px";
+
   window.scrollTo({
     top: 0,
     left: 0,
     behavior: "smooth",
   });
 
-
-  document.body.append(navFooter())
+  document.body.append(navFooter());
 }
 
 // Back/forward buttons
@@ -67,5 +70,3 @@ window.addEventListener("popstate", router);
 
 // Initial load
 router();
-
-
