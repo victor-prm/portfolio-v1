@@ -42,3 +42,8 @@ export function setLS(key, value) {
 export function getCurrentRoute() {
     return location.pathname;
 }
+
+export function getBasePath() {
+    const basePath = location.hostname === "victor-prm.github.io" ? "/portfolio-v1" : "";
+    return basePath;
+}
