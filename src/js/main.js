@@ -49,7 +49,7 @@ function router() {
   app.appendChild(view);
 
   let header = document.querySelector(".header")
-  app.style.paddingTop = header.offsetHeight + 24 + "px"
+  app.style.paddingTop = header.offsetHeight + 16 + "px"
   console.log(header.offsetHeight)
   window.scrollTo({
     top: 0,

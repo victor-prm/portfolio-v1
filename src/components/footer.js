@@ -4,7 +4,7 @@ import { arrowLink } from "./small";
 
 export function navFooter(data) {
     //Only show on details page
-    if (getCurrentRoute() !== '/detail') return
+    if (getCurrentRoute() !== '/detail') return ""
 
     const cname = "footer"
 
