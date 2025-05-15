@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/',
+ base: '/portfolio-v1/',
   server: {
     historyApiFallback: true,
   },
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     assetsDir: 'assets',
     emptyOutDir: true,
     rollupOptions: {
