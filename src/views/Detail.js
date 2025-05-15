@@ -14,14 +14,15 @@ export default function detail() {
 
   let projectImages = loadProjectImages(data.id);
   let imageContainer = imageGrid(projectImages);
-  
+
   //Add meta card to beginning of grid
-  const allTags = {type: data.type,roles: data.roles,tags: data.tags}
+  const allTags = { type: data.type, roles: data.roles, tags: data.tags }
   imageContainer.prepend(metaCard(allTags));
-  
+
   thisElm.append(imageContainer)
 
   headerContext();
+  setTimeout(() => { updateFooter() }, 10)
 
   return thisElm;
 }
@@ -42,7 +43,7 @@ function headerContext() {
 
   //APPEND
   let headerCon = document.querySelector(".header__context-info")
-  
+
   if (headerCon.childElementCount === 0) {
     headerCon.append(thisElm)
   }
@@ -86,5 +87,35 @@ function loadProjectImages(projectId) {
   }
 
   return images
+}
+
+function updateFooter() {
+  let navContainer = document.querySelector(".footer__nav")
+
+  let previous = getContent().previous;
+  let previousLink = navContainer.querySelector(".arrow-link--left")
+
+  let next = getContent().next;
+  let nextLink = navContainer.querySelector(".arrow-link--right")
+
+  let baseUrl = "/detail?id="
+
+
+  if (previous) {
+    previousLink.style.display = "block"
+    previousLink.innerHTML = `◅ ${previous.title}`
+    previousLink.href = `${baseUrl}${previous.id}`
+  } else {
+    previousLink.style.display = "none"
+  }
+
+  if (next) {
+    nextLink.style.display = "block"
+    nextLink.innerHTML = `${next.title} ▻`
+    nextLink.href = `${baseUrl}${next.id}`
+  } else {
+    nextLink.style.display = "none"
+  }
+
 }
 
