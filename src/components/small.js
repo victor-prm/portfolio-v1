@@ -11,18 +11,24 @@ export function imgWrapper(parentClass) {
 }
 
 export function arrowLink(data) {
-    const cname = "arrow-link"
+    let cname = "arrow-link"
     let text = data.text || "";
     let ref = data.link || "#"
     let direction = data.direction || "left";
 
-    let content = direction === "right"? `${text} ▻` : `◅ ${text}`
+    if (direction === "right") {
+        text = `${text} ▻`
+        cname += ` ${cname}--right`
+    } else {
+        text = `◅ ${text}`
+        cname += ` ${cname}--left`
+    }
 
 
     let link = setElement("a", {
         class: cname,
         href: ref
-    }).withHTML(content)
+    }).withHTML(text)
     //⫷⪕⪪⪡⚌
     return link;
 }

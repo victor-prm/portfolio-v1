@@ -5,7 +5,7 @@ export function tagList(data) {
     const cname = "tags"
     let title = data.title || "";
     let tags = data.tags || [];
-    console.log(tags)
+    //console.log(tags)
 
     let thisElm = setElement("div", {
         class: cname

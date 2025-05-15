@@ -16,17 +16,16 @@ export function navFooter(data) {
         class: `${cname}__nav`
     })
 
-    let prevLink = arrowLink({ text: "Project 001", link: "/projects" })
-    let nextLink = arrowLink({ text: "Project 003", link: "/projects", direction: "right" })
+    let prevLink = arrowLink({ text: "", link: "/projects" })
+    let nextLink = arrowLink({ text: "", link: "/projects", direction: "right" })
 
-    /*  if (getCurrentRoute() === '/detail') {
-         let link = arrowLink({ text: "Index", link: "/projects" })
-         nav.append(link)
-     } */
-
-    nav.append(prevLink,nextLink)
+    nav.append(prevLink, nextLink)
 
     thisElm.append(nav)
+
+    window.addEventListener("contentUpdate", () => {
+        console.log("Hey! an update!")
+    })
 
     return thisElm;
 }

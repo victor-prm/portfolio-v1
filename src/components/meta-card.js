@@ -6,7 +6,7 @@ export function metaCard(data) {
     let typeList = data.type;
     let roleList = data.roles;
     let tagsList = data.tags
-    console.log(typeList, roleList, tagsList)
+    //console.log(typeList, roleList, tagsList)
 
     const cname = "meta-card"
 
@@ -18,7 +18,6 @@ export function metaCard(data) {
         class: `${cname}__tags-container`
     })
 
-    //let typeList = tagList(data.type)
     let type = tagList({
         title: "Type",
         tags: data.type
