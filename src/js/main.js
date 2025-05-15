@@ -38,6 +38,7 @@ function router() {
   const currentPath = location.pathname.replace(basePath, '') || "/";
 
   const match = routes.find(r => r.path === currentPath);
+  console.log("Current path:", location.pathname);
 
   const app = document.getElementById("app");
   app.innerHTML = ''; // Clear old content
