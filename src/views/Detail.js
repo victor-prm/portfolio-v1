@@ -100,6 +100,7 @@ function updateFooter() {
 
   let basePath = getBasePath()
   let baseUrl = `${basePath}/detail?id=`
+  console.log(basePath,baseUrl)
 
 
   if (previous) {
