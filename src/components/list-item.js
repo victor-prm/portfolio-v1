@@ -1,7 +1,8 @@
 import './list-item.sass'
-import { setElement } from "../js/utils";
+import { getBasePath, setElement } from "../js/utils";
 import { projectList } from '../js/project-list';
 const IMG_BASE = '/project-imgs/'
+let baseUrl = `${getBasePath()}/detail?id=`
 
 function loadProjectImages(projectId) {
     const projects = projectList()
@@ -22,7 +23,7 @@ export function createListItem(data) {
     let id = data.id;
     let title = data.title
     let year = data.year
-    let link = `/detail?id=${data.id}`
+    let link = `${baseUrl}${data.id}`
     let imgSrc = data.thumbnail
         ? `/project-imgs/${id}/${data.thumbnail}`
         : `/project-imgs/${id}/${id}-1.jpg`
@@ -47,7 +48,7 @@ export function createListItem(data) {
         class: `${cname}__year`,
     }).withHTML(year)
 
-    textContainer.append(projectTitle,projectYear)
+    textContainer.append(projectTitle, projectYear)
 
     thisElm.append(img, textContainer)
 

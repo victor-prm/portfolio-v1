@@ -1,11 +1,10 @@
 import '../style/detail.sass'
 import { projectList } from "../js/project-list";
-import { setElement } from "../js/utils";
+import { getBasePath, setElement } from "../js/utils";
 import imageGrid from '../components/image-grid';
 import { metaCard } from '../components/meta-card';
 
 let data = getContent().current;
-const basePath = location.hostname === "victor-prm.github.io" ? "/portfolio-v1" : "";
 
 export default function detail() {
   const cname = 'project'
@@ -99,6 +98,7 @@ function updateFooter() {
   let next = getContent().next;
   let nextLink = navContainer.querySelector(".arrow-link--right")
 
+  let basePath = getBasePath()
   let baseUrl = `${basePath}/detail?id=`
 
 
