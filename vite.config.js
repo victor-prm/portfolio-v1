@@ -9,8 +9,5 @@ export default defineConfig({
     outDir: 'docs',
     assetsDir: 'assets',
     emptyOutDir: true,
-    rollupOptions: {
-      input: 'index.html',
-    },
   },
 })
