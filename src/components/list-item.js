@@ -1,23 +1,7 @@
 import './list-item.sass'
 import { getBasePath, setElement } from "../js/utils";
-import { projectList } from '../js/project-list';
-const IMG_BASE = '/project-imgs/'
 let basePath = `${getBasePath()}/detail?id=`
 console.log(basePath)
-
-function loadProjectImages(projectId) {
-    const projects = projectList()
-    const project = projects.find(p => p.id === projectId)
-
-    if (!project) return console.error("Project not found!")
-
-    const images = []
-    for (let i = 1; i <= project.num_images; i++) {
-        images.push(`${IMG_BASE}${projectId}/${projectId}-${i}.jpg`)
-    }
-
-    return images
-}
 
 export function createListItem(data) {
     const cname = "list-item"
@@ -26,8 +10,8 @@ export function createListItem(data) {
     let year = data.year
     let link = `${basePath}${data.id}`
     let imgSrc = data.thumbnail
-        ? `/project-imgs/${id}/${data.thumbnail}`
-        : `/project-imgs/${id}/${id}-1.jpg`
+        ? `${getBasePath()}/project-imgs/${id}/${data.thumbnail}`
+        : `${getBasePath()}/project-imgs/${id}/${id}-1.jpg`
 
 
     let thisElm = setElement("li", {

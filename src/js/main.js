@@ -5,10 +5,10 @@ import Detail from '../views/detail.js';
 import { contextHeader } from '../components/header';
 import '../style/index.sass';
 import { navFooter } from '../components/footer.js';
-import { getCurrentRoute } from './utils.js';
+import { getBasePath} from './utils.js';
 
 // Detect basePath depending on hosting environment
-const basePath = location.hostname === "victor-prm.github.io" ? "/portfolio-v1" : "";
+const basePath = getBasePath()
 console.log(basePath, typeof basePath)
 
 // SETUP
