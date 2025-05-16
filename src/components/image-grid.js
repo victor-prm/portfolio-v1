@@ -19,6 +19,13 @@ export default function imageGrid(imageArray) {
   setTimeout(() => {
     initMasonry();
     window.addEventListener("resize", debounceLayout, { passive: true });
+
+    // Listen for imageLoaded events to re-layout
+    imageContainer.addEventListener("imageLoaded", () => {
+      if (masonry) {
+        masonry.layout();
+      }
+    });
   }, 50);
 
   return imageContainer;
@@ -37,10 +44,10 @@ function initMasonry() {
   // Initialize MiniMasonry
   masonry = new MiniMasonry({
     container: targetContainer,
-    baseWidth: 320,     // your min desired item width
+    baseWidth: 320,
     gutterX: 16,
     gutterY: 16,
-    ultimateGutter: 16, // ensures one-column mode uses same vertical spacing
+    ultimateGutter: 16,
     surroundingGutter: false,
     minify: true
   });
@@ -50,5 +57,5 @@ function debounceLayout() {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
     initMasonry();
-  }, 50); // Adjust debounce delay as necessary
+  }, 50);
 }
