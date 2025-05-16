@@ -1,19 +1,27 @@
 import './image-item.sass'
 import { setElement } from "../js/utils";
-import { imgWrapper } from './small';
 
 export default function projectImage(imgSrc) {
-    const cname = 'project-image'
-    const thisElm = setElement("div",{
-        class: `${cname}__wrapper`
-    })
-    const img = setElement("img", {
-        class: cname,
-        src: imgSrc
-    })
+  const cname = 'project-image';
 
-    thisElm.append(img)
+  const wrapper = setElement("div", {
+    class: `${cname}__wrapper masonry-item`
+  });
 
-    return thisElm;
+  const img = setElement("img", {
+    class: cname,
+    src: imgSrc,
+    loading: "lazy" // optional, recommended
+  });
+
+  // On image load, dispatch event on masonry container
+  img.addEventListener("load", () => {
+    const masonryContainer = document.querySelector(".masonry");
+    if (masonryContainer) {
+      masonryContainer.dispatchEvent(new CustomEvent("imageLoaded"));
+    }
+  });
+
+  wrapper.append(img);
+  return wrapper;
 }
-
