@@ -82,8 +82,10 @@ function loadProjectImages(projectId) {
   if (!project) return console.error("Project not found!")
 
   const images = []
+  const basePath = getBasePath();
+
   for (let i = 1; i <= project.num_images; i++) {
-    images.push(`/project-imgs/${projectId}/${projectId}-${i}.jpg`)
+    images.push(`${basePath}/project-imgs/${projectId}/${projectId}-${i}.jpg`)
   }
 
   return images
